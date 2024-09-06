@@ -4,7 +4,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        nunitoFont: ["Nunito", "sans-serif"],
+        lexendDeca: ["Lexend Deca", "sans-serif"],
+      },
+      colors: {
+        primaryBlack: "#000000FF",
+        purple500: "#6D31EDFF",
       },
     },
   },
