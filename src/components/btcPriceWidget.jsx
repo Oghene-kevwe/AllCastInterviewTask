@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useDebounce } from "../hooks/useDebounce";
 import { PriceInput } from "./priceInput";
 
 export const BtcPriceWidget = () => {
@@ -28,18 +27,16 @@ export const BtcPriceWidget = () => {
     }
   }
 
-  const debouncedUsdAmount = useDebounce(usdAmount, 500);
-
   // fetch BTC price on initial app load
   useEffect(() => {
     fetchBitcoinPrice();
-    // Fetch new price every 60 seconds
+    // Fetch new price every 5 minutes
     const interval = setInterval(() => {
       fetchBitcoinPrice();
-    }, 600000);
+    }, 300000);
 
     return () => clearInterval(interval);
-  }, [debouncedUsdAmount]);
+  }, []);
 
   // Format number with commas
   function formatNumber(number) {
